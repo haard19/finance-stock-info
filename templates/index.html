@@ -1,0 +1,34 @@
+<html>
+    <body style="font-family: Verdana, sans-serif;">
+        <form action="/" method="POST">
+            
+            Please enter a symbol: 
+            <input name="symbol" type="text" />
+            <br>
+            <br><br>
+        
+            <input style="color: #ffffff;
+            text-transform: Capitalize;
+            text-decoration: none;
+            background: #ed3330;
+            padding: 20px;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;" type="submit" value="Calculate" />
+        </form> 
+        <h2> Stock Details </h2><br>
+
+        {% if request.method == "POST" and error == ""   %}
+        Company Name: {{companyName}}<br>
+        Current Date and Time : {{now}}<br>
+        Two Days Data : {{twoDaysData}}<br>
+        Value Change : {{valueChange}}<br>
+        Percent Change : {{percentChange}}<br>
+
+        {% endif %}
+
+        {% if request.method == "POST" and error != ""   %}
+            <b style = "color:red" > Error : {{error}} </b>
+        {% endif %}
+    </body>    
+</html>
